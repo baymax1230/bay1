@@ -1,0 +1,262 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+@media screen and (min-width:1400px){
+    html{
+        font-size: 140px;
+    }
+}
+.logo{
+    width: 1.842857rem;
+    height: .728571rem;
+}
+.logo img {
+    width: 1.842857rem;
+    height: .728571rem;
+}
+.borderbottom {
+    border-bottom: .028571rem solid #784cfa;
+    color: #784cfa;
+}
+.nav {
+    min-width: 8.571429rem;
+    height: 1.571429rem;
+    box-shadow: 0 .071429rem .071429rem  0  #d1d1d1;
+}
+.navleft {
+    float: left;
+    padding:.142857rem 0 .092857rem .5rem; 
+}
+.navright {
+    float: right;
+    padding: .642857rem 1.428571rem .642857rem 0 ;
+}
+.navright button {
+    background-color: white ;
+    border: .007143rem solid #ccc;
+    border-radius: 0rem .057143rem .057143rem 0rem;
+    padding: 0 .178571rem;
+    font-size: .1rem;
+    height: .342857rem;
+}
+.logobottom{
+    padding:.214286rem 0;
+}
+.logobottom li{
+    float: left;
+    font-size: .157143rem;
+    padding: 0 .107143rem .021429rem ;
+    margin: 0 .142857rem;
+}
+.logobottom li a {
+    color: #000;
+    font-weight: 800;
+}
+#search {
+    width: 2.857143rem;
+    height: .342857rem;
+    border: .007143rem solid #ccc;
+    border-right: none;
+    border-radius: .057143rem 0px 0px .057143rem ;
+    padding-left: .142857rem;
+    outline: none;
+    font-size: .1rem;
+}
+
+/* 分类 */
+.class{
+    margin-top: 20px;
+}
+.classification{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding:0 20px;
+    font-size: 18px;
+}
+.classification > li{
+    float: left;
+    width: 200px;
+    text-align: center;
+    color: #7c7c7c;
+}
+
+/* 轮播 */
+.box {
+    position: relative;
+    width: 1400px;
+    height: 500px;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+img {
+    width: 1400px;
+    height: 500px;
+    /* position: absolute;
+    left: 480px;
+    top: 0; */
+}
+
+#last,
+#next {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    position: absolute;
+    transition: all .5s;
+    top: 230px;
+    /* margin: auto 0; */
+    text-align: center;
+    line-height: 50px;
+    font-size: 26px;
+    border-style: none;
+    outline-style: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+}
+
+#last {
+    left: 10px;
+}
+
+#next {
+    right: 10px;
+}
+
+#last2 {
+    transform-origin: 0 100%;
+    transform: rotateZ(30deg);
+    margin-left: 11px;
+}
+
+.last1 {
+    width: 4px;
+    height: 20px;
+    background-color: white;
+    margin-left: 23px;
+    transition: all .3s;
+}
+
+#last:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+#next:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+#last:hover #last2 {
+    transform: rotateZ(45deg);
+    background-color: black;
+}
+
+#last3 {
+    transform-origin: 0 0;
+    transform: rotateZ(-30deg);
+    margin-left: 11px;
+}
+
+#last:hover #last3 {
+    transform: rotateZ(-45deg);
+    background-color: black;
+}
+
+#last4 {
+    transform-origin: 100% 100%;
+    transform: rotateZ(-30deg);
+}
+
+#next:hover #last4 {
+    transform: rotateZ(-45deg);
+    background-color: black;
+}
+
+#last5 {
+    transform-origin: 100% 0;
+    transform: rotateZ(30deg);
+}
+
+#next:hover #last5 {
+    transform: rotateZ(45deg);
+    background-color: black;
+}
+
+.btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn button {
+    outline-style: none;
+    border-style: none;
+    background-color: grey;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 0;
+}
+/* 绝对定位不设置宽度  */
+
+.swiper {
+    position: absolute;
+    width: 7000px;
+    left: 0;
+    transition: all 2s;
+}
+
+img {
+    float: left;
+}
+
+
+/* 商品分类 */
+ .list{
+    width: 1400px;
+    margin: 0 auto;
+}
+    .item {
+        width: 200px;
+        height: 250px;
+        border: 1px solid black;
+        
+    }
+
+    .item img {
+        width: 160px;
+        height: 150px;
+        /* padding: 0 20px; */
+     }
+    .item .imgs{
+        width: 160px;
+        height: 150px;
+        margin: 10px auto 20px;
+      
+    }
+    .title {
+        font-weight: 700;
+        font-size: 20px;
+        text-align: left;
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+   .info{
+       margin-left: 20px;
+       position: relative;
+       font-size: 15px;
+   }
+    .info .price {
+        color: red;
+    }
+    .info .ping{
+        text-align: right;
+    } 
