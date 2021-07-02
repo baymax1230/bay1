@@ -9,10 +9,13 @@
     <link rel="stylesheet" href="../css/re.css">
     <link rel="stylesheet" href="../css/home.css">
     <!-- <link rel="stylesheet" href="./css/common.css"> -->
-    <script src="./js/request.js"></script>
+    <script src="../js/request.js"></script>
+    <!-- <script src="../js/resize1.js"></script> -->
+    <!-- <script src="../js/underscore.js"></script> -->
     <script src="../js/resize.js"></script>
-    
+
 </head>
+
 <body>
     <div class="nav">
         <div class="navleft">
@@ -20,10 +23,13 @@
                 <img src="../images/logo.png" alt="">
             </div>
             <ul class="logobottom">
-                <li class="borderbottom"><a href="">首页</a><li>
-                <li><a href=".view/login.html">登录</a><li>
-                <li><a href=".view/register.html">注册</a><li>
-                <!-- <li><a href="">购物车</a><li>
+                <li class="borderbottom"><a href="">首页</a>
+                <li>
+                <li><a href=".view/login.html">登录</a>
+                <li>
+                <li><a href=".view/register.html">注册</a>
+                <li>
+                    <!-- <li><a href="">购物车</a><li>
                 <li><a href="">退出登录</a><li> -->
             </ul>
         </div>
@@ -34,66 +40,121 @@
 
     <!-- 分类 -->
     <div class="class">
-  <ul class="classification content clearfix">
-      <li>咖啡</li>
-      <li>饮食</li>
-      <li>正餐</li>
-      <li>男装</li>
-      <li>女装</li>
-      <li>眼镜</li>
-      <li>鞋靴</li>
-  </ul>
-</div>
-
-<!-- 轮播 -->
-<div class="box" id="box">
-    <div class="swiper">
-        <img src="../images/a.jpg" alt="">
-        <img src="../images/b.jpg" alt="">
-        <img src="../images/d.jpg" alt="">
-        <img src="../images/c.jpg" alt="">
-        <!-- <img src="../images/e.jpg" alt=""> -->
-        <img src="../images/a.jpg" alt="">
+        <ul class="classification content clearfix">
+            <li>咖啡</li>
+            <li>饮食</li>
+            <li>正餐</li>
+            <li>男装</li>
+            <li>女装</li>
+            <li>眼镜</li>
+            <li>鞋靴</li>
+        </ul>
     </div>
 
-    <div class="btn" id="btn">
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <!-- <button></button> -->
+    <!-- 轮播 -->
+    <div class="box" id="box">
+        <div class="swiper">
+            <img src="../images/a.jpg" alt="">
+            <img src="../images/b.jpg" alt="">
+            <img src="../images/d.jpg" alt="">
+            <img src="../images/c.jpg" alt="">
+            <!-- <img src="../images/e.jpg" alt=""> -->
+            <img src="../images/a.jpg" alt="">
+        </div>
+
+        <div class="btn" id="btn">
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <!-- <button></button> -->
+        </div>
+        <button id="last">
+            <div class="last1" id="last2">
+            </div>
+            <div class="last1" id="last3">
+            </div>
+        </button>
+        <button id="next">
+            <div class="last1" id="last4">
+            </div>
+            <div class="last1" id="last5">
+            </div>
+        </button>
+        <div id="div2">
+        </div>
     </div>
-    <button id="last">
-        <div class="last1" id="last2">
-        </div>
-        <div class="last1" id="last3">
-        </div>
-    </button>
-    <button id="next">
-        <div class="last1" id="last4">
-        </div>
-        <div class="last1" id="last5">
-        </div>
-    </button>
-    <div id="div2">
-    </div>
-</div>
-<!-- 商品 -->
-<div class="list">
-        <div class="item">
+    <!-- 商品 -->
+    <div class="list clearfix">
+        <!-- <div class="item">
             <div class="imgs">
                 <img src="../images/d.jpg" alt="">
             </div>
-           <p class="title">手冲咖啡</p>
-            <p class="info"><span class="price">￥59</span>爆品<span class="ping"></span> </p>
-        </div>
+            <p class="title">手冲咖啡</p>
+            <p class="info clearfix"><span class="price">￥59</span><span class="ping">爆品</span> </p>
+        </div> -->
 
     </div>
 
-
+    <div class="stopTop">
+        返回顶部
+    </div>
 </body>
 <script src="../js/shouye.js"></script>
+<script>
+    var list = document.querySelector(".list");
+
+    function goodShopList() {
+        REQUEST.get("/goodList", {
+            params: {
+                page: 1
+            }
+        }, function (data) {
+            console.log(data)
+            var html = '';
+            for (let i = 0; i < data.length; i++) {
+                var item = data[i];
+                html = html + `
+                <div class="item">
+                     <div class="imgs">
+                          <img src="${item.img_list_url}" alt="">
+                     </div>
+                     <p class="title">${item.title}</p>
+                     <p class="info clearfix"><span class="price">￥${item.price}</span><span class="sp">${item.mack}</span></p>
+                </div>
+               `
+
+            }
+            list.innerHTML = html
+
+        })
+    }
+    goodShopList()
+</script>
+<script>
+    var stopTop = document.getElementsByClassName("stopTop")[0];
+    stopTop.onclick = function () {
+        document.documentElement.scrollTop = 0;
+    }
+
+    document.body.onscroll = function (e) {
+        var box = document.documentElement;
+
+
+        if (Math.ceil(box.clientHeight + box.scrollTop) == box.scrollHeight) {
+            stopTop.style.display = "block";
+        } else {
+            stopTop.style.display = "none";
+        }
+
+    }
+
+</script>
+<script>
+    var imgs = document.querySelectorAll("img");
+  
+</script>
 <!-- <script>
 
 
